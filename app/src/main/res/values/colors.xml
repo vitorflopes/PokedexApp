@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="verde_pokedex">#60E824</color>
+    <color name="azul_pokedex">#02416d</color>
+
+    <color name="black_pokemon">#333333</color>
+    <color name="blue_pokemon">#6699ff</color>
+    <color name="brown_pokemon">#cc9966</color>
+    <color name="gray_pokemon">#808080</color>
+    <color name="green_pokemon">#339933</color>
+    <color name="pink_pokemon">#ff33cc</color>
+    <color name="purple_pokemon">#c596bd</color>
+    <color name="red_pokemon">#D34522</color>
+    <color name="white_pokemon">#ffffff</color>
+    <color name="yellow_pokemon">#ffff99</color>
+</resources>

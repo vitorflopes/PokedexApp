@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/signInFragment">
+
+    <fragment
+        android:id="@+id/campeoesListaFragment"
+        android:name="com.pbvitorlucas.myapplication.ui.campeaoLista.CampeoesListaFragment"
+        android:label="fragment_campeoes_lista"
+        tools:layout="@layout/fragment_campeoes_lista" />
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.pbvitorlucas.myapplication.ui.signup.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" />
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.pbvitorlucas.myapplication.ui.signin.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_signInFragment_to_perfilFragment"
+            app:destination="@id/perfilFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_signInFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/perfilFragment"
+        android:name="com.pbvitorlucas.myapplication.ui.perfil.PerfilFragment"
+        android:label="PerfilFragment"
+        tools:layout="@layout/fragment_perfil" >
+        <action
+            android:id="@+id/action_perfilFragment_to_editarFragment"
+            app:destination="@id/editarFragment" />
+        <action
+            android:id="@+id/action_perfilFragment_to_campeoesListaFragment"
+            app:destination="@id/campeoesListaFragment" />
+        <action
+            android:id="@+id/action_perfilFragment_to_pokemonsFragment"
+            app:destination="@id/pokemonsFragment" />
+        <action
+            android:id="@+id/action_perfilFragment_to_allPokemonsFragment"
+            app:destination="@id/allPokemonsFragment" />
+        <action
+            android:id="@+id/action_perfilFragment_to_userPokemonsFragment"
+            app:destination="@id/userPokemonsFragment" />
+        <action
+            android:id="@+id/action_perfilFragment_to_signInFragment"
+            app:destination="@id/signInFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/editarFragment"
+        android:name="com.pbvitorlucas.myapplication.ui.editar.EditarFragment"
+        android:label="EditarFragment"
+        tools:layout="@layout/fragment_editar">
+        <argument
+            android:name="idCampeao"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/pokemonsFragment"
+        android:name="com.pbvitorlucas.myapplication.ui.pokemons.lista.PokemonsFragment"
+        android:label="fragment_pokemons"
+        tools:layout="@layout/fragment_pokemons" >
+        <argument
+            android:name="campeaoId"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/pokemonFormFragment"
+        android:name="com.pbvitorlucas.myapplication.ui.pokemons.form.PokemonFormFragment"
+        android:label="fragment_pokemon_form"
+        tools:layout="@layout/fragment_pokemon_form" >
+        <argument
+            android:name="pokemonName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_pokemonFormFragment_to_createPokemonFragment"
+            app:destination="@id/createPokemonFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/allPokemonsFragment"
+        android:name="com.pbvitorlucas.myapplication.ui.pokemons.form.AllPokemonsFragment"
+        android:label="fragment_all_pokemons"
+        tools:layout="@layout/fragment_all_pokemons" >
+        <action
+            android:id="@+id/action_allPokemonsFragment_to_pokemonFormFragment"
+            app:destination="@id/pokemonFormFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createPokemonFragment"
+        android:name="com.pbvitorlucas.myapplication.ui.pokemons.create.CreatePokemonFragment"
+        android:label="fragment_create_pokemon"
+        tools:layout="@layout/fragment_create_pokemon" >
+        <argument
+            android:name="pokemonName"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/userPokemonsFragment"
+        android:name="com.pbvitorlucas.myapplication.ui.pokemons.userPokemons.UserPokemonsFragment"
+        android:label="fragment_user_pokemons"
+        tools:layout="@layout/fragment_user_pokemons" >
+        <action
+            android:id="@+id/action_userPokemonsFragment_to_detalhesPokemonFragment"
+            app:destination="@id/detalhesPokemonFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalhesPokemonFragment"
+        android:name="com.pbvitorlucas.myapplication.ui.pokemons.detalhes.DetalhesPokemonFragment"
+        android:label="fragment_detalhes_pokemon"
+        tools:layout="@layout/fragment_detalhes_pokemon" >
+        <argument
+            android:name="pokemonId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_detalhesPokemonFragment_to_perfilFragment"
+            app:destination="@id/perfilFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
