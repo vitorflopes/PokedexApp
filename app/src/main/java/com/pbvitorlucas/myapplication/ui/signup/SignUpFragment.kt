@@ -27,13 +27,6 @@ class SignUpFragment : Fragment() {
         val view = binding.root
         viewModel = ViewModelProvider(this).get(SignUpViewModel::class.java)
 
-        /*
-        binding.imFotoCadastro.setOnClickListener {
-            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            startActivityForResult(intent, 51157)
-        }
-        */
-
         viewModel.status.observe(viewLifecycleOwner) {
             if (it)
                 findNavController().popBackStack()

@@ -23,8 +23,6 @@ class SignInFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var viewModel: SignInViewModel
 
-    lateinit var mAdView: AdView
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,41 +30,6 @@ class SignInFragment : Fragment() {
         _binding = FragmentSignInBinding.inflate(inflater, container, false)
         val view = binding.root
         viewModel = ViewModelProvider(this).get(SignInViewModel::class.java)
-
-        MobileAds.initialize(requireContext())
-        mAdView = binding.adView
-        val adRequest = AdRequest.Builder().build()
-        mAdView.loadAd(adRequest)
-
-        binding.adView.adListener = object: AdListener() {
-            override fun onAdClicked() {
-                // Code to be executed when the user clicks on an ad.
-            }
-
-            override fun onAdClosed() {
-                // Code to be executed when the user is about to return
-                // to the app after tapping on an ad.
-            }
-
-            override fun onAdFailedToLoad(adError : LoadAdError) {
-                Log.d("TesteAnuncio", adError.message)
-                Toast.makeText(requireContext(), adError.message, Toast.LENGTH_LONG).show()
-            }
-
-            override fun onAdImpression() {
-                // Code to be executed when an impression is recorded
-                // for an ad.
-            }
-
-            override fun onAdLoaded() {
-                Log.d("TesteAnuncio", "carregado")
-            }
-
-            override fun onAdOpened() {
-                // Code to be executed when an ad opens an overlay that
-                // covers the screen.
-            }
-        }
 
         viewModel.status.observe(viewLifecycleOwner) {
             if (it) {

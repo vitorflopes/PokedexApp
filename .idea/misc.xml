@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/lopes/AndroidStudioProjects/MyApplication2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Users/lopes/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/fragment_all_pokemons.xml" value="0.1884498480243161" />
         <entry key="..\:/Users/lopes/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/fragment_sign_in.xml" value="0.30117753623188404" />
         <entry key="..\:/Users/lopes/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/helper.xml" value="0.1" />
       </map>

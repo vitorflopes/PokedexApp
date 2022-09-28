@@ -2,6 +2,7 @@ package com.pbvitorlucas.myapplication.ui.pokemons.form
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.ads.*
 import com.pbvitorlucas.myapplication.R
 import com.pbvitorlucas.myapplication.adapter.AdapterPokemon
 import com.pbvitorlucas.myapplication.databinding.FragmentAllPokemonsBinding
@@ -25,6 +27,8 @@ class AllPokemonsFragment : Fragment() {
     val binding get() = _binding!!
     private lateinit var viewModel: AllPokemonsViewModel
 
+    lateinit var mAdView: AdView
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,8 +38,43 @@ class AllPokemonsFragment : Fragment() {
         viewModel = ViewModelProvider(this, AllPokemonsVMF(requireContext())).get(
             AllPokemonsViewModel::class.java)
 
+        MobileAds.initialize(requireContext())
+        mAdView = binding.adView2
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
+        /*
+        binding.adView2.adListener = object: AdListener() {
+            override fun onAdClicked() {
+                // Code to be executed when the user clicks on an ad.
+            }
+
+            override fun onAdClosed() {
+                // Code to be executed when the user is about to return
+                // to the app after tapping on an ad.
+            }
+
+            override fun onAdFailedToLoad(adError : LoadAdError) {
+                Toast.makeText(requireContext(), adError.message, Toast.LENGTH_LONG).show()
+                Log.d("TesteAnuncio", adError.message)
+            }
+
+            override fun onAdImpression() {
+                // Code to be executed when an impression is recorded
+                // for an ad.
+            }
+
+            override fun onAdLoaded() {
+                Log.d("TesteAnuncio", "carregado")
+            }
+
+            override fun onAdOpened() {
+                // Code to be executed when an ad opens an overlay that
+                // covers the screen.
+            }
+        }
+        */
+
         binding.rvPokemons.layoutManager = LinearLayoutManager(context)
-        //binding.rvPokemons.layoutManager = GridLayoutManager(context, 2)
         binding.rvPokemons.setHasFixedSize(true)
 
         viewModel.pokemonsList.observe(viewLifecycleOwner) {
